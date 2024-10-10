@@ -13,7 +13,7 @@
     <nav>
         <a href="/">Home</a>
         <a href="/users">Users</a>
-        <a href="#">item 3</a>
+        <a href="/projects">Projects</a>
         <a href="#">item 4</a>
     </nav>
 
