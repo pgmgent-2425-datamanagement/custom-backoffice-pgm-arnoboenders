@@ -13,4 +13,11 @@ class UserController extends BaseController
             'users' => $users->all()
         ]);
     }
+    public static function show($id)
+    {
+        $user = new User();
+        self::loadView('/user', [
+            'user' => $user->find($id)
+        ]);
+    }
 }
