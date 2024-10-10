@@ -1,4 +1,4 @@
-name: BaseMVC
+name: custom-backoffice-pgm-arnoboenders
 type: php
 docroot: public
 php_version: "8.2"
@@ -13,6 +13,9 @@ use_dns_when_possible: true
 composer_version: "2"
 web_environment: []
 corepack_enable: false
+host_webserver_port: "5000"
+host_https_port: "5001"
+host_db_port: "5002"
 
 # Key features of DDEV's config.yaml:
 
