@@ -21,3 +21,4 @@
             </tr>
         <?php endforeach; ?>
     </tbody>
+</table>
