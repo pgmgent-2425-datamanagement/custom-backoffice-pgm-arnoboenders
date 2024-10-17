@@ -15,7 +15,7 @@ class TaskController extends BaseController
         $users = User::all(); // Assuming you have a User model to fetch user data
 
         // Attach user info to each comment
-        foreach ($comments as &$comment) {
+        foreach ($comments as $comment) {
             $user = array_filter($users, function ($user) use ($comment) {
                 return $user->id == $comment->user_id;
             });
