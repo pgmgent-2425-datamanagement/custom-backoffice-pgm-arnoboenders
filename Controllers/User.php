@@ -18,7 +18,7 @@ class UserController extends BaseController
     public static function show($id)
     {
         $user = User::find($id);
-        self::loadView('/user', [
+        self::loadView('/users/user', [
             'user' => $user
         ]);
     }
