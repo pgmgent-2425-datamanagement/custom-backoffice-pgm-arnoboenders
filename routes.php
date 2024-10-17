@@ -31,3 +31,23 @@ $router->get('/projects/delete/(\d+)', 'ProjectController@delete');
 // tasks
 $router->get('/tasks', 'TaskController@index');
 $router->get('/tasks/(\d+)', 'TaskController@show');
+
+$router->get('/tasks/create', 'TaskController@create');
+$router->post('/tasks/create', 'TaskController@create');
+
+$router->get('/tasks/edit/(\d+)', 'TaskController@edit');
+$router->post('/tasks/edit/(\d+)', 'TaskController@edit');
+
+$router->get('/tasks/delete/(\d+)', 'TaskController@delete');
+
+// comments
+$router->get('/comments', 'CommentController@index');
+$router->get('/comments/(\d+)', 'CommentController@show');
+
+$router->get('/comments/create', 'CommentController@create');
+$router->post('/comments/create', 'CommentController@create');
+
+$router->get('/comments/edit/(\d+)', 'CommentController@edit');
+$router->post('/comments/edit/(\d+)', 'CommentController@edit');
+
+$router->get('/comments/delete/(\d+)', 'CommentController@delete');
