@@ -63,7 +63,6 @@ class ProjectController extends BaseController
     public static function show($id)
     {
         $project = Project::find($id);
-
         self::loadView('/projects/project', [
             'project' => $project,
             'manager' => User::find($project->manager_id),
