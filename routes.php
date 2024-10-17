@@ -7,6 +7,8 @@ $router->get('/', 'HomeController@index');
 // users
 $router->get('/users', 'UserController@index');
 $router->get('/users/(\d+)', 'UserController@show');
+$router->get('/users/create', 'UserController@create');
+$router->post('/users/create', 'UserController@create');
 
 // projects
 $router->get('/projects', 'ProjectController@index');

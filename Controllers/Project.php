@@ -105,12 +105,6 @@ class ProjectController extends BaseController
 
     public static function create()
     {
-        // Fetch all users
-        $user = User::all();
-
-        // Fetch all statuses
-        $status = Status::all();
-
         // Check if the request is a POST request
         if (isset($_POST['name'])) {
             // Collect data from the POST request
@@ -130,8 +124,8 @@ class ProjectController extends BaseController
 
         // Load the view with users and statuses data
         self::loadView('/projects/create', [
-            'users' => $user,
-            'statuses' => $status
+            'users' => User::all(),
+            'statuses' => Status::all()
         ]);
     }
 }

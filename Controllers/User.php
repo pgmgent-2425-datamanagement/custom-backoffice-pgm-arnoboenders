@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Controllers;
+
+use App\Models\Role;
 use App\Models\User;
 
 class UserController extends BaseController
@@ -19,5 +21,25 @@ class UserController extends BaseController
         self::loadView('/user', [
             'user' => $user
         ]);
+    }
+    public static function create()
+    {
+        if (isset($_POST['first_name'])) {
+            $data = [
+                'first_name' => $_POST['first_name'],
+                'last_name' => $_POST['last_name'],
+                'email' => $_POST['email'],
+                'password' => $_POST['password'],
+                'role_id' => $_POST['role_id']
+            ];
+            $user = new User();
+            $user->create($data);
+            header('Location: /users');
+            exit;
+        } else {
+            self::loadView('/users/create', [
+                'roles' => Role::all()
+            ]);
+        }
     }
 }

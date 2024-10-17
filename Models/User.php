@@ -11,16 +11,24 @@ class User extends BaseModel
         parent::__construct();
     }
 
-    public function all() {
+    protected function all() {
         return parent::all();
     }
 
-    public function find(int $id) {
+    protected function find(int $id) {
         return parent::find($id);
     }
 
     public function create(array $data) {
-        return parent::create($data);
+        $sql = 'INSERT INTO `' . $this->table . '` (`first_name`, `last_name`, `email`, `password`, `role_id`) VALUES (:first_name, :last_name, :email, :password, :role_id)';
+        $pdo_statement = $this->db->prepare($sql);
+        $pdo_statement->execute([
+            ':first_name' => $data['first_name'],
+            ':last_name' => $data['last_name'],
+            ':email' => $data['email'],
+            ':password' => $data['password'],
+            ':role_id' => $data['role_id']
+        ]);
     }
 
     public function update(int $id, array $data) {
