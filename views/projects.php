@@ -9,6 +9,7 @@
             <th>Description</th>
             <th>Manager</th>
             <th>Status</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -19,6 +20,10 @@
                 <td><?= $project->description ?></td>
                 <td><?= $project->manager->first_name . ' ' . $project->manager->last_name ?></td>
                 <td><?= $project->status->name ?></td>
+                <td>
+                    <a href="/projects/edit/<?= $project->id ?>" class="btn btn-secondary">Edit</a>
+                    <a href="/projects/delete/<?= $project->id ?>" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this project?');">Delete</a>
+                </td>
             </tr>
         <?php endforeach; ?>
     </tbody>
