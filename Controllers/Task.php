@@ -10,9 +10,9 @@ class TaskController extends BaseController
 {
     public static function index()
     {
-        $tasks = (new Task())->all();
-        $comments = (new Comment())->all();
-        $users = (new User())->all(); // Assuming you have a User model to fetch user data
+        $tasks = Task::all();
+        $comments = Comment::all();
+        $users = User::all(); // Assuming you have a User model to fetch user data
 
         // Attach user info to each comment
         foreach ($comments as &$comment) {
@@ -69,7 +69,7 @@ class TaskController extends BaseController
     public static function show($id)
     {
         self::loadView('/task', [
-            'task' => (new Task())->find($id)
+            'task' => Task::find($id)
         ]);
     }
 }

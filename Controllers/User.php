@@ -8,16 +8,16 @@ class UserController extends BaseController
 
     public static function index()
     {
-        $users = new User();
+        $users = User::all();
         self::loadView('/users', [
-            'users' => $users->all()
+            'users' => $users
         ]);
     }
     public static function show($id)
     {
-        $user = new User();
+        $user = User::find($id);
         self::loadView('/user', [
-            'user' => $user->find($id)
+            'user' => $user
         ]);
     }
 }
