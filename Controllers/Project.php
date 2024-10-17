@@ -15,22 +15,20 @@ class ProjectController extends BaseController
         $projects = Project::all();
 
         // Fetch all users at once to avoid multiple queries
-        $user = new User();
-        $usersData = $user->all();
+        $user = User::all();
 
         // Fetch all statuses at once to avoid multiple queries
-        $status = new \App\Models\Status();
-        $statusesData = $status->all();
+        $status = Status::all();
 
         // Create a map of users keyed by their IDs
         $userMap = [];
-        foreach ($usersData as $user) {
+        foreach ($user as $user) {
             $userMap[$user->id] = $user; // Use object property syntax
         }
 
         // Create a map of statuses keyed by their IDs
         $statusMap = [];
-        foreach ($statusesData as $status) {
+        foreach ($status as $status) {
             $statusMap[$status->id] = $status; // Use object property syntax
         }
 
@@ -66,18 +64,10 @@ class ProjectController extends BaseController
     {
         $project = Project::find($id);
 
-        // Fetch manager details
-        $manager = new User();
-        $managerData = $manager->find($project->manager_id); // Use object property syntax
-
-        // Fetch status details
-        $status = new \App\Models\Status();
-        $statusData = $status->find($project->status_id); // Use object property syntax
-
         self::loadView('/project', [
             'project' => $project,
-            'manager' => $managerData,
-            'status' => $statusData
+            'manager' => User::find($project->manager_id),
+            'status' => Status::find($project->status_id)
         ]);
     }
 
@@ -96,19 +86,11 @@ class ProjectController extends BaseController
             $project->save();
         }
 
-        // Fetch all users
-        $user = new User();
-        $usersData = $user->all();
-
-        // Fetch all statuses
-        $status = new \App\Models\Status();
-        $statusesData = $status->all();
-
         // Load the view with project, users, and statuses data
         self::loadView('/projects/edit', [
             'project' => $project,
-            'users' => $usersData,
-            'statuses' => $statusesData
+            'users' => User::all(),
+            'statuses' => Status::all()
         ]);
     }
 
@@ -124,12 +106,10 @@ class ProjectController extends BaseController
     public static function create()
     {
         // Fetch all users
-        $user = new User();
-        $usersData = $user->all();
+        $user = User::all();
 
         // Fetch all statuses
-        $status = new Status();
-        $statusesData = $status->all();
+        $status = Status::all();
 
         // Check if the request is a POST request
         if (isset($_POST['name'])) {
@@ -150,8 +130,8 @@ class ProjectController extends BaseController
 
         // Load the view with users and statuses data
         self::loadView('/projects/create', [
-            'users' => $usersData,
-            'statuses' => $statusesData
+            'users' => $user,
+            'statuses' => $status
         ]);
     }
 }
