@@ -1,5 +1,4 @@
 <h1>Create New Project</h1>
-
 <?php if (!empty($errors)): ?>
     <div class="error-messages">
         <ul>
@@ -9,8 +8,7 @@
         </ul>
     </div>
 <?php endif; ?>
-
-<form action="/projects/create" method="post">
+<form method="POST">
     <div>
         <label for="name">Project Name:</label>
         <input type="text" id="name" name="name" value="<?php echo htmlspecialchars($name ?? ''); ?>" required>
@@ -20,22 +18,22 @@
         <textarea id="description" name="description" required><?php echo htmlspecialchars($description ?? ''); ?></textarea>
     </div>
     <div>
-        <label for="manager">Manager:</label>
-        <select id="manager" name="manager" required>
+        <label for="manager_id">Manager:</label>
+        <select id="manager_id" name="manager_id" required>
             <?php
             foreach ($users as $user) {
-                $selected = (isset($manager) && $manager == $user->id) ? 'selected' : '';
-                echo '<option value="' . htmlspecialchars($user->id) . '" ' . $selected . '>' . htmlspecialchars($user->first_name) .' ' . htmlspecialchars($user->last_name) .'</option>';
+                $selected = (isset($manager_id) && $manager_id == $user->id) ? 'selected' : '';
+                echo '<option value="' . htmlspecialchars($user->id) . '" ' . $selected . '>' . htmlspecialchars($user->first_name) . ' ' . htmlspecialchars($user->last_name) . '</option>';
             }
             ?>
         </select>
     </div>
     <div>
-        <label for="status">Status:</label>
-        <select id="status" name="status" required>
+        <label for="status_id">Status:</label>
+        <select id="status_id" name="status_id" required>
             <?php
             foreach ($statuses as $stat) {
-                $selected = (isset($status) && $status == $stat->id) ? 'selected' : '';
+                $selected = (isset($status_id) && $status_id == $stat->id) ? 'selected' : '';
                 echo '<option value="' . htmlspecialchars($stat->id) . '" ' . $selected . '>' . htmlspecialchars($stat->name) . '</option>';
             }
             ?>
