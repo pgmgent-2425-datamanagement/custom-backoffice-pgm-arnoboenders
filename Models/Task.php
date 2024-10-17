@@ -9,10 +9,10 @@ class Task extends BaseModel
     public function __construct() {
         parent::__construct();
     }
-    public function all() {
+    protected function all() {
         return parent::all();
     }
-    public function find(int $id) {
+    protected function find(int $id) {
         return parent::find($id);
     }
     public function create(array $data) {
