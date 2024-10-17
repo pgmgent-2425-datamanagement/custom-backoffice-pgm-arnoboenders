@@ -1,11 +1,11 @@
-<div class="user-item">
+<div class="item">
     <img src="/path/to/user/avatar.jpg" alt="<?= htmlspecialchars($user->first_name . ' ' . $user->last_name) ?>" width="50" height="50">
-    <div class="user-details">
-        <div class="user-name"><?= htmlspecialchars($user->first_name . ' ' . $user->last_name) ?></div>
-        <div class="user-email"><?= htmlspecialchars($user->email) ?></div>
+    <div class="details">
+        <div class="name"><?= htmlspecialchars($user->first_name . ' ' . $user->last_name) ?></div>
+        <div class="email"><?= htmlspecialchars($user->email) ?></div>
     </div>
-    <div class="user-actions">
-        <a href="/users/edit/<?= urlencode($user->id) ?>" class="btn btn-edit">Edit</a>
-        <a href="/users/delete/<?= urlencode($user->id) ?>" class="btn btn-remove" onclick="return confirm('Are you sure you want to delete this user?');">Remove</a>
+    <div class="actions">
+        <a href="/users/edit/<?= urlencode($user->id) ?>" class="btn btn-secondary">Edit</a>
+        <a href="/users/delete/<?= urlencode($user->id) ?>" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this user?');">Remove</a>
     </div>
 </div>
