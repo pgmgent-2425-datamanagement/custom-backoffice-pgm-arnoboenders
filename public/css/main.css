@@ -180,6 +180,44 @@ form button:hover {
     margin-bottom: 0.5rem;
 }
 
+/* users */
+/* main.css */
+
+.user-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease;
+}
+
+.user-item:hover {
+    background-color: #e9e9e9;
+}
+
+.user-item img {
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.user-item .user-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-item .user-details .user-name {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.user-item .user-details .user-email {
+    font-size: 0.9em;
+    color: #666;
+}
+
 /* tasks */
 .task {
     margin-bottom: 2rem;
