@@ -5,7 +5,7 @@
         <div class="user-email"><?= htmlspecialchars($user->email) ?></div>
     </div>
     <div class="user-actions">
-        <a href="/edit-user.php?id=<?= urlencode($user->id) ?>" class="btn btn-edit">Edit</a>
-        <a href="/delete-user.php?id=<?= urlencode($user->id) ?>" class="btn btn-remove" onclick="return confirm('Are you sure you want to delete this user?');">Remove</a>
+        <a href="/users/edit/<?= urlencode($user->id) ?>" class="btn btn-edit">Edit</a>
+        <a href="/users/delete/<?= urlencode($user->id) ?>" class="btn btn-remove" onclick="return confirm('Are you sure you want to delete this user?');">Remove</a>
     </div>
 </div>
