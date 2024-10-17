@@ -14,7 +14,8 @@
         <a href="/">Home</a>
         <a href="/users">Users</a>
         <a href="/projects">Projects</a>
-        <a href="#">item 4</a>
+        <a href="/teams">Teams</a>
+        <a href="/tasks">Tasks</a>
     </nav>
 
     <main>
