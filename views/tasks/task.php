@@ -1,6 +1,3 @@
-<?php
-include_once __DIR__ . "/../comments/displayComments.php" ?>
-
 <h1><?= $task->name ?></h1>
 <p><strong>Description:</strong><?= $task->description ?></p>
 <p><strong>Due Date:</strong> <?= $task->due ?></p>
@@ -10,10 +7,8 @@ include_once __DIR__ . "/../comments/displayComments.php" ?>
 <p><strong>Priority:</strong> <?= $task->priority ?></p>
 
 <h3>Comments</h3>
-<?php if (!empty($task->comments)): ?>
-    <ul class="comments">
-        <?php displayComments($task->comments); ?>
-    </ul>
-<?php else: ?>
+<?php if (!empty($task->comments)): 
+    include __DIR__ .  '/../comments/item.php';
+else: ?> 
     <p>No comments yet.</p>
-<?php endif; ?>
+ <?php endif; ?>

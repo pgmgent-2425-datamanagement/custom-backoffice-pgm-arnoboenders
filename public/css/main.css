@@ -286,30 +286,54 @@ form button:hover {
     color: #007bff;
 }
 
+/* Comment styles */
 .comments {
     list-style-type: none;
     padding-left: 0;
 }
-
 .comment {
-    padding: 0.5rem;
-    border-bottom: 1px solid #ddd;
-}
-
-.comment:last-child {
-    border-bottom: none;
-}
-
-.comment p {
-    margin: 0;
+    position: relative; /* Add this line */
+    padding: 10px;
+    margin: 10px 0;
 }
 
 .comment-author {
-    display: block;
-    font-size: 0.875rem;
-    color: #555;
-    margin-top: 0.5rem;
+    font-weight: bold;
+    margin-bottom: 5px;
 }
+
+.comment-content {
+    margin-bottom: 10px;
+}
+
+.comment-actions {
+    position: absolute; /* Add this line */
+    top: 10px; /* Adjust as needed */
+    right: 10px; /* Adjust as needed */
+}
+
+.comment-actions .btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #007bff;
+    transition: background-color 0.3s ease;
+}
+
+.comment-actions .btn:hover {
+    background-color: #0056b3;
+}
+
+.comment-actions .btn.btn-remove {
+    background-color: #dc3545;
+}
+
+.comment-actions .btn.btn-remove:hover {
+    background-color: #c82333;
+}
+
 .children {
     list-style-type: none;
     padding-left: 1.5rem;
