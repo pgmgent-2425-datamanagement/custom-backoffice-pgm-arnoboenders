@@ -25,12 +25,20 @@ class UserController extends BaseController
     public static function create()
     {
         if (isset($_POST['first_name'])) {
+            $name = $_FILES['image']['name'];
+            $from = $_FILES['image']['tmp_name'];
+
+            $to = BASE_DIR . '/public/images/';
+            $uuid = uniqid() . '_' . $name;
+            move_uploaded_file($from, $to . $uuid);
+
             $data = [
                 'first_name' => $_POST['first_name'],
                 'last_name' => $_POST['last_name'],
                 'email' => $_POST['email'],
                 'password' => $_POST['password'],
-                'role_id' => $_POST['role_id']
+                'role_id' => $_POST['role_id'],
+                'image' => $uuid
             ];
             $user = new User();
             $user->create($data);
@@ -47,12 +55,19 @@ class UserController extends BaseController
     {
         $user = User::find($id);
         if (isset($_POST['first_name'])) {
+            $name = $_FILES['image']['name'];
+            $from = $_FILES['image']['tmp_name'];
+
+            $to = BASE_DIR . '/public/images/';
+            $uuid = uniqid() . '_' . $name;
+            move_uploaded_file($from, $to . $uuid);
             $data = [
                 'first_name' => $_POST['first_name'],
                 'last_name' => $_POST['last_name'],
                 'email' => $_POST['email'],
                 'password' => $_POST['password'],
-                'role_id' => $_POST['role_id']
+                'role_id' => $_POST['role_id'],
+                'image' => $uuid
             ];
             $user->update($id, $data);
             header('Location: /users');

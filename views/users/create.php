@@ -8,7 +8,7 @@
         </ul>
     </div>
 <?php endif; ?>
-<form method="POST">
+<form method="POST" enctype="multipart/form-data">
     <div>
         <label for="first_name">First Name:</label>
         <input type="text" id="first_name" name="first_name" value="<?php echo htmlspecialchars($first_name ?? ''); ?>" required>
@@ -35,6 +35,10 @@
             }
             ?>
         </select>
+    </div>
+    <div>
+        <label for="image">Image</label>
+        <input type="file" id="image" name="image" accept="image/*">
     </div>
     <div>
         <button type="submit">Create User</button>
