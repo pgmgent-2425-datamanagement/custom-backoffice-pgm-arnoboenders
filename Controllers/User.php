@@ -25,12 +25,16 @@ class UserController extends BaseController
     public static function create()
     {
         if (isset($_POST['first_name'])) {
-            $name = $_FILES['image']['name'];
-            $from = $_FILES['image']['tmp_name'];
+            if (is_file($_FILES['image']['tmp_name'])) {
+                $name = $_FILES['image']['name'];
+                $from = $_FILES['image']['tmp_name'];
 
-            $to = BASE_DIR . '/public/images/';
-            $uuid = uniqid() . '_' . $name;
-            move_uploaded_file($from, $to . $uuid);
+                $to = BASE_DIR . '/public/images/';
+                $uuid = uniqid() . '_' . $name;
+                move_uploaded_file($from, $to . $uuid);
+            } else {
+                $uuid = null;
+            }
 
             $data = [
                 'first_name' => $_POST['first_name'],
@@ -55,12 +59,17 @@ class UserController extends BaseController
     {
         $user = User::find($id);
         if (isset($_POST['first_name'])) {
-            $name = $_FILES['image']['name'];
-            $from = $_FILES['image']['tmp_name'];
+            if (is_file($_FILES['image']['tmp_name'])) {
+                $name = $_FILES['image']['name'];
+                $from = $_FILES['image']['tmp_name'];
 
-            $to = BASE_DIR . '/public/images/';
-            $uuid = uniqid() . '_' . $name;
-            move_uploaded_file($from, $to . $uuid);
+                $to = BASE_DIR . '/public/images/';
+                $uuid = uniqid() . '_' . $name;
+                move_uploaded_file($from, $to . $uuid);
+            } else {
+                $uuid = null;
+            }
+
             $data = [
                 'first_name' => $_POST['first_name'],
                 'last_name' => $_POST['last_name'],
