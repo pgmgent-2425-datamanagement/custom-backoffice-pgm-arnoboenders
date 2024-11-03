@@ -286,11 +286,11 @@ form button:hover {
     color: #007bff;
 }
 
-/* Comment styles */
+ /* Comment styles */
 .comments {
     list-style-type: none;
     padding-left: 0;
-}
+} 
 .comment {
     position: relative; /* Add this line */
     padding: 10px;
