@@ -13,14 +13,13 @@
 </head>
 
 <body>
-    <div class="brand">BrandName</div>
-
     <nav>
         <a href="/">Home</a>
         <a href="/users">Users</a>
         <a href="/projects">Projects</a>
         <a href="/teams">Teams</a>
         <a href="/tasks">Tasks</a>
+        <a href="/files">Files</a>
     </nav>
 
     <main>
@@ -28,7 +27,7 @@
     </main>
 
     <footer>
-        &copy; <?= date('Y'); ?> - BrandName
+        &copy; <?= date('Y'); ?> - Project Management
     </footer>
 </body>
 
