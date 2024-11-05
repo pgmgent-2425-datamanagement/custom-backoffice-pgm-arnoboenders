@@ -229,11 +229,11 @@ form button:hover {
     border-color: #bd2130;
 }
 
-/* items */
+/* General item styles */
 .item {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Add this line */
+    justify-content: space-between;
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #ccc;
@@ -254,7 +254,9 @@ form button:hover {
 .item .details {
     display: flex;
     flex-direction: column;
-    flex-grow: 1; /* Add this line */
+    flex-grow: 1;
+    text-decoration: none;
+    color: inherit;
 }
 
 .item .details .name {
@@ -269,7 +271,37 @@ form button:hover {
 
 .item .actions {
     display: flex;
-    gap: 10px; /* Add some space between buttons */
+    gap: 10px;
+}
+
+.item .actions .btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #007bff;
+    transition: background-color 0.3s ease;
+}
+
+.item .actions .btn:hover {
+    background-color: #0056b3;
+}
+
+.item .actions .btn.btn-secondary {
+    background-color: #6c757d;
+}
+
+.item .actions .btn.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+.item .actions .btn.btn-danger {
+    background-color: #dc3545;
+}
+
+.item .actions .btn.btn-danger:hover {
+    background-color: #c82333;
 }
 
 /* tasks */
