@@ -53,18 +53,18 @@ $router->post('/comments/edit/(\d+)', 'CommentController@edit');
 $router->get('/comments/delete/(\d+)', 'CommentController@delete');
 
 // teams
-$router->get('/teams', 'TeamController@index');
-$router->get('/teams/(\d+)', 'TeamController@show');
+$router->get('/teams', 'Team@index');
+$router->get('/teams/(\d+)', 'Team@show');
 
-$router->get('/teams/create', 'TeamController@create');
-$router->post('/teams/create', 'TeamController@create');
+$router->get('/teams/create', 'Team@create');
+$router->post('/teams/create', 'Team@create');
 
-$router->get('/teams/edit/(\d+)', 'TeamController@edit');
-$router->post('/teams/edit/(\d+)', 'TeamController@edit');
+$router->get('/teams/edit/(\d+)', 'Team@edit');
+$router->post('/teams/edit/(\d+)', 'Team@edit');
 
-$router->get('/teams/delete/(\d+)', 'TeamController@delete');
+$router->get('/teams/delete/(\d+)', 'Team@delete');
 
 // file manager
-$router->get('/files', 'FileManagerController@index');
+$router->get('/files', 'FileManager@index');
 
-$router->get('/filemanager/delete/(.*)', 'FileManagerController@delete');
+$router->get('/filemanager/delete/(.*)', 'FileManager@delete');
