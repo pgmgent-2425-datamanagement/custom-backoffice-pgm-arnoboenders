@@ -8,6 +8,8 @@ $router->get('/', 'HomeController@index');
 $router->get('/users', 'UserController@index');
 $router->get('/users/(\d+)', 'UserController@show');
 
+$router->get('/users/search', 'UserController@search');
+
 $router->get('/users/create', 'UserController@create');
 $router->post('/users/create', 'UserController@create');
 
@@ -65,6 +67,6 @@ $router->post('/teams/edit/(\d+)', 'TeamController@edit');
 $router->get('/teams/delete/(\d+)', 'TeamController@delete');
 
 // file manager
-$router->get('/files', 'FileManager@index');
+$router->get('/files', 'FileManagerController@index');
 
-$router->get('/filemanager/delete/(.*)', 'FileManager@delete');
+$router->get('/filemanager/delete/(.*)', 'FileManagerController@delete');

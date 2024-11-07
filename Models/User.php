@@ -19,6 +19,14 @@ class User extends BaseModel
         return parent::find($id);
     }
 
+    public function search($query)
+    {
+        $sql = 'SELECT * FROM `' . $this->table . '` WHERE `first_name` LIKE :query OR `last_name` LIKE :query';
+        $pdo_statement = $this->db->prepare($sql);
+        $pdo_statement->execute([':query' => '%' . $query . '%']);
+        return self::castToModel($pdo_statement->fetchAll());
+    }
+
     public function create(array $data) {
         $sql = 'INSERT INTO `' . $this->table . '` (`first_name`, `last_name`, `email`, `password`, `role_id`, `image`) VALUES (:first_name, :last_name, :email, :password, :role_id, :image)';
         $pdo_statement = $this->db->prepare($sql);

@@ -22,6 +22,16 @@ class UserController extends BaseController
             'user' => $user
         ]);
     }
+    public static function search()
+    {
+        $query = $_GET['query'] ?? '';
+        $users = new User();
+        $users = $users->search($query);
+        self::loadView('/users', [
+            'users' => $users,
+            'query' => $query
+        ]);
+    }
     public static function create()
     {
         if (isset($_POST['first_name'])) {
