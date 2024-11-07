@@ -21,14 +21,13 @@
         <a href="/tasks">Tasks</a>
         <a href="/files">Files</a>
     </nav>
-
     <main>
         <?= $content; ?>
     </main>
-
     <footer>
         &copy; <?= date('Y'); ?> - Project Management
     </footer>
+    <script src="/js/dropdown.js"></script> <!-- Include the dropdown.js file -->
 </body>
 
 </html>
