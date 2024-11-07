@@ -32,16 +32,11 @@ class Project extends BaseModel
             ':description' => $data['description'],
             ':start_date' => date('Y-m-d H:i:s'),
             ':end_date' => $data['end_date'],
-            ':manager_id' => $data['manager'],
-            ':status_id' => $data['status']
+            ':manager_id' => $data['manager_id'],
+            ':status_id' => $data['status_id']
         ]);
     }
-
-    public function update(int $id, array $data)
-    {
-        return parent::update($id, $data);
-    }
-    public function save()
+    public function update()
     {
         $sql = 'UPDATE `' . $this->table . '` SET `name` = :name, `description` = :description, `start_date` = :start_date, `end_date` = :end_date, `manager_id` = :manager_id, `status_id` = :status_id WHERE `' . $this->pk . '` = :id';
         $pdo_statement = $this->db->prepare($sql);

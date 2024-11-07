@@ -82,7 +82,8 @@ class ProjectController extends BaseController
             $project->manager_id = $_POST['manager'];
             $project->status_id = $_POST['status'];
 
-            $project->save();
+            $project->update();
+            header('Location: /projects');
         }
 
         // Load the view with project, users, and statuses data
@@ -118,7 +119,7 @@ class ProjectController extends BaseController
             // Create a new project
             $project = new Project();
             $project->create($data);
-
+            header('Location: /projects');
         }
 
         // Load the view with users and statuses data
