@@ -126,11 +126,35 @@ class Team extends BaseModel
 
     public function delete()
     {
-        $sql = 'DELETE FROM `' . $this->table . '` WHERE `' . $this->pk . '` = :id';
-        $pdo_statement = $this->db->prepare($sql);
-        $pdo_statement->execute([
-            ':id' => $this->id
-        ]);
+        $this->db->beginTransaction();
+
+        try {
+            // Delete from team_user table
+            $sql = 'DELETE FROM `team_user` WHERE `team_id` = :team_id';
+            $pdo_statement = $this->db->prepare($sql);
+            $pdo_statement->execute([
+                ':team_id' => $this->id
+            ]);
+
+            // Delete from project_team table
+            $sql = 'DELETE FROM `project_team` WHERE `team_id` = :team_id';
+            $pdo_statement = $this->db->prepare($sql);
+            $pdo_statement->execute([
+                ':team_id' => $this->id
+            ]);
+
+            // Delete from teams table
+            $sql = 'DELETE FROM `' . $this->table . '` WHERE `' . $this->pk . '` = :id';
+            $pdo_statement = $this->db->prepare($sql);
+            $pdo_statement->execute([
+                ':id' => $this->id
+            ]);
+
+            $this->db->commit();
+        } catch (\Exception $e) {
+            $this->db->rollBack();
+            throw $e;
+        }
     }
 
     public function projects()

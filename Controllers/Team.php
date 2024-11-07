@@ -90,4 +90,11 @@ class TeamController extends BaseController
             ]);
         }
     }
+    public static function delete($id)
+    {
+        $team = Team::find($id);
+        $team->delete();
+        header('Location: /teams');
+        exit;
+    }
 }
