@@ -19,9 +19,19 @@ class HomeController extends BaseController
                 'projectCount' => $projectCount
             ];
         }
+        $projects = Project::all();
+        $taskData = [];
+        foreach ($projects as $project) {
+            $taskCount = count($project->tasks());
+            $taskData[] = [
+                'name' => $project->name,
+                'taskCount' => $taskCount
+            ];
+        }
         self::loadView('/home', [
             'title' => 'Homepage',
-            'teamData' => $teamData
+            'teamData' => $teamData,
+            'taskData' => $taskData
         ]);
     }
 }

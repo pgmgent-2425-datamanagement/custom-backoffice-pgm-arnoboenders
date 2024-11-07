@@ -411,3 +411,22 @@ form button:hover {
 .dropdown-item input[type="checkbox"] {
     margin-right: 10px;
 }
+
+/* Chart container styling */
+.chart-container {
+    display: flex;
+    justify-content: space-between; /* Adjusted to space between the charts */
+    flex-wrap: wrap; /* Ensure charts are next to each other */
+    gap: 2rem;
+    margin-block: 2rem;
+}
+
+.chart-container canvas {
+    width: 48%; /* Adjusted to ensure charts fit next to each other */
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    padding: 10px;
+}

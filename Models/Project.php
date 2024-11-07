@@ -58,4 +58,13 @@ class Project extends BaseModel
             ':id' => $this->id
         ]);
     }
+    public function tasks()
+    {
+        $sql = 'SELECT * FROM `tasks` WHERE `project_id` = :project_id';
+        $pdo_statement = $this->db->prepare($sql);
+        $pdo_statement->execute([
+            ':project_id' => $this->id
+        ]);
+        return $pdo_statement->fetchAll();
+    }
 }
