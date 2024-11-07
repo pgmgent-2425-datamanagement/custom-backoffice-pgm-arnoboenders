@@ -2,13 +2,26 @@
 
 namespace App\Controllers;
 
-class HomeController extends BaseController {
+use App\Models\Team;
+use App\Models\Project;
 
-    public static function index () {
-
+class HomeController extends BaseController
+{
+    public static function index()
+    {
+        // Fetch teams and their project counts
+        $teams = Team::all();
+        $teamData = [];
+        foreach ($teams as $team) {
+            $projectCount = count($team->projects());
+            $teamData[] = [
+                'name' => $team->name,
+                'projectCount' => $projectCount
+            ];
+        }
         self::loadView('/home', [
-            'title' => 'Homepage'
+            'title' => 'Homepage',
+            'teamData' => $teamData
         ]);
     }
-
 }

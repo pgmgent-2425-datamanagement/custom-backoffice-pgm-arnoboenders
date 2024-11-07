@@ -27,6 +27,7 @@
     <footer>
         &copy; <?= date('Y'); ?> - Project Management
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Include Chart.js -->
     <script src="/js/dropdown.js"></script> <!-- Include the dropdown.js file -->
 </body>
 
