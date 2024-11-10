@@ -59,7 +59,7 @@ class CommentController extends BaseController
         // Assign the tree-structured comments to the comment
         $comment->comments = $rootComments;
 
-        self::loadView('/comments/comment', [
+        self::loadView('/comments/detail', [
             'comment' => $comment
         ]);
     }

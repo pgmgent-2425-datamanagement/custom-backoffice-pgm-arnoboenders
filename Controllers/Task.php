@@ -25,7 +25,7 @@ class TaskController extends BaseController
             }));
         }
 
-        self::loadView('/tasks', [
+        self::loadView('/tasks/index', [
             'tasks' => $tasks
         ]);
     }
@@ -94,7 +94,7 @@ class TaskController extends BaseController
         // Add status and priority to the task
         $task->status = Status::find($task->status_id)->name;
         $task->priority = Priority::find($task->priority_id)->name;
-        self::loadView('/tasks/task', [
+        self::loadView('/tasks/detail', [
             'task' => $task
         ]);
     }

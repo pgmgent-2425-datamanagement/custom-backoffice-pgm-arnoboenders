@@ -55,7 +55,7 @@ class ProjectController extends BaseController
         }
 
         // Load the view with the modified project data
-        self::loadView('/projects', [
+        self::loadView('/projects/index', [
             'projects' => $projects
         ]);
     }
@@ -63,7 +63,7 @@ class ProjectController extends BaseController
     public static function show($id)
     {
         $project = Project::find($id);
-        self::loadView('/projects/project', [
+        self::loadView('/projects/detail', [
             'project' => $project,
             'manager' => User::find($project->manager_id),
             'status' => Status::find($project->status_id)

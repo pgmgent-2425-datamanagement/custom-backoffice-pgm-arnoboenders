@@ -11,14 +11,14 @@ class UserController extends BaseController
     public static function index()
     {
         $users = User::all();
-        self::loadView('/users', [
+        self::loadView('/users/index', [
             'users' => $users
         ]);
     }
     public static function show($id)
     {
         $user = User::find($id);
-        self::loadView('/users/user', [
+        self::loadView('/users/detail', [
             'user' => $user
         ]);
     }

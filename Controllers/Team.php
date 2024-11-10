@@ -12,7 +12,7 @@ class TeamController extends BaseController
     public static function index()
     {
         $teams = Team::all();
-        self::loadView('/teams', [
+        self::loadView('/teams/index', [
             'teams' => $teams
         ]);
     }
@@ -32,7 +32,7 @@ class TeamController extends BaseController
             $project['status'] = $status ? $status->name : 'No Status';
         }
         unset($project);
-        self::loadView('/teams/team', [
+        self::loadView('/teams/detail', [
             'team' => $team,
             'projects' => $projects,
             'users' => $users
