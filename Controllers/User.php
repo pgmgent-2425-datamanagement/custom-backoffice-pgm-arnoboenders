@@ -27,7 +27,7 @@ class UserController extends BaseController
         $query = $_GET['query'] ?? '';
         $users = new User();
         $users = $users->search($query);
-        self::loadView('/users', [
+        self::loadView('/users/index', [
             'users' => $users,
             'query' => $query
         ]);

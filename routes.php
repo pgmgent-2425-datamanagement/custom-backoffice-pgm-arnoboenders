@@ -70,3 +70,9 @@ $router->get('/teams/delete/(\d+)', 'TeamController@delete');
 $router->get('/files', 'FileManagerController@index');
 
 $router->get('/filemanager/delete/(.*)', 'FileManagerController@delete');
+
+// api
+$router->get('/api/projects', 'ApiController@projects');
+$router->get('/api/projects/(\d+)', 'ApiController@project');
+$router->get('/api/projects/search', 'ApiController@searchProjects');
+$router->post('/api/projects', 'ApiController@createProject');

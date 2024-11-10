@@ -23,6 +23,16 @@ class Project extends BaseModel
         return parent::find($id);
     }
 
+    public function search(string $query)
+    {
+        $sql = 'SELECT * FROM `' . $this->table . '` WHERE `name` LIKE :query OR `description` LIKE :query';
+        $pdo_statement = $this->db->prepare($sql);
+        $pdo_statement->execute([
+            ':query' => '%' . $query . '%'
+        ]);
+        return $pdo_statement->fetchAll();
+    }
+
     public function create(array $data)
     {
         $sql = 'INSERT INTO `' . $this->table . '` (`name`, `description`, `start_date`, `end_date`, `manager_id`, `status_id`) VALUES (:name, :description, :start_date, :end_date, :manager_id, :status_id)';
@@ -35,6 +45,8 @@ class Project extends BaseModel
             ':manager_id' => $data['manager_id'],
             ':status_id' => $data['status_id']
         ]);
+        $lastInsertId = $this->db->lastInsertId();
+        return $this->find($lastInsertId);
     }
     public function update()
     {
