@@ -7,6 +7,6 @@
 <a href="/users/create" class="btn btn-primary">Create User</a>
 <div class="user-list">
     <?php foreach ($users as $user):
-        include 'users/item.php';
+        include 'item.php';
     endforeach; ?>
 </div>

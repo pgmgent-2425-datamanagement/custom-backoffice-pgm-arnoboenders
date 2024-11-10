@@ -2,5 +2,5 @@
 <a href="index.php?controller=tasks&action=create" class="btn btn-primary">Create Task</a>
 
 <?php foreach ($tasks as $task):
-    include "tasks/item.php";
+    include "item.php";
 endforeach; ?>

@@ -3,6 +3,6 @@
 <a href="/projects/create" class="btn btn-primary">Create New Project</a>
 <div class="project-list">
     <?php foreach ($projects as $project):
-        include "projects/item.php";
+        include "item.php";
     endforeach; ?>
 </div>
