@@ -1,5 +1,5 @@
-<h1>Base MVC</h1>
-<p>Welcome to this base MVC project.</p>
+<h1>Project management system</h1>
+<p>Welcome to the project management system.</p>
 
 <h2>Team Statistics</h2>
 <div class="chart-container">
